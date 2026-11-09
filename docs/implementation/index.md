@@ -13,6 +13,10 @@ This section documents how the CraftRail repository itself is organized, built, 
 | Documentation website | Zensical reads canonical Markdown and builds static pages; Vercel serves `site/` | [Documentation site](../framework/documentation-site.md) |
 | Agent neutrality | `AGENTS.md` is canonical; `CLAUDE.md` imports it; OpenCode reads `AGENTS.md` directly | [Agent compatibility](../framework/agent-compatibility.md) |
 
+## Known flaws and remediation plan
+
+The [critical review](critical-review.md) lists verified weaknesses in the validator, initializer, templates, approval model, and template distribution, with proposed remediations and the owner decisions they need.
+
 ## Build and test the repository
 
 Install development checks in an isolated environment:

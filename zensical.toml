@@ -50,6 +50,7 @@ nav = [
       "framework/validation.md",
     ] },
     { "Documentation website" = "framework/documentation-site.md" },
+    { "Critical review" = "implementation/critical-review.md" },
   ] },
 ]
 extra_css = ["stylesheets/extra.css"]

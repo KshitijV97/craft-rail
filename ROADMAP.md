@@ -6,6 +6,8 @@ This roadmap is a small set of possible next steps, not a delivery commitment.
 
 - [ ] **TD-001 — Separate the documentation deployment from Golden Tide Retreat.** The current `craft-rail-docs` Vercel project is under the `golden-tide-retreat` scope as a temporary setup. Move it to a CraftRail-owned Vercel account/team and project when those credentials and ownership are available. Revoke the old project's generated protection-bypass secret, explicitly decide whether production docs should be public or protected, and establish an authorized GitHub-to-Vercel deployment path. Update `zensical.toml`, the README, and deployment guidance if the canonical URL changes. Consider this resolved only after an authorized maintainer can deploy from the new scope, a production build is verified, and no CraftRail deployment depends on Golden Tide Retreat.
 
+- [ ] **TD-002 — Remediate findings from the November 2026 critical review.** Nineteen findings (F-01 to F-19) cover validator gaps, identifier collisions, advisory-only approval, and template distribution. See [the critical review](docs/implementation/critical-review.md) for evidence, proposed fixes, and phase order. Implementation requires owner approval of scope.
+
 See the [documentation deployment guide](docs/framework/documentation-site.md) for the current setup and update commands.
 
 1. **Improve portability evidence:** run and record the documented shared-repository acceptance procedure in Codex, Claude Code, and OpenCode.
