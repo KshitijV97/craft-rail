@@ -11,7 +11,6 @@ import unicodedata
 from datetime import date
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 SPECS = ROOT / "specs"
 TEMPLATE = ROOT / "templates" / "feature"
@@ -71,7 +70,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error: {exc}", file=sys.stderr)
         return 2
     print(f"Created {target.relative_to(ROOT)}")
-    print("Next: edit spec.md, resolve material questions, obtain approval, then plan and task the work.")
+    print("Next: edit the spec, resolve questions, get approval, then plan and task the work.")
     return 0
 
 

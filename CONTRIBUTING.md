@@ -4,14 +4,17 @@ Contributions should improve a practical, agent-neutral engineering framework. S
 
 ## Development
 
-Use Python 3.10 or later; runtime tools and tests use only the standard library.
+Core scripts and tests support Python 3.10 or later and run with the standard library. Use Python 3.12 or later for the pinned developer quality toolchain.
 
 ```bash
-python3 -m unittest discover -s tests -v
-python3 scripts/validate_docs.py
+python3 -m venv .venv-dev
+source .venv-dev/bin/activate
+python -m pip install -r requirements-dev.txt
+pre-commit install
+pre-commit run --all-files
 ```
 
-`python3 scripts/validate_docs.py --strict` also fails when warnings exist. Current warnings include the deliberate lack of OpenAPI YAML parsing.
+See [Python quality checks](docs/framework/python-quality.md) for the exact lint, format, strict type, coverage, and CI commands. `python scripts/validate_docs.py --strict` also fails when warnings exist. The standard validator currently warns that OpenAPI YAML is not parsed by the dependency-free core tool.
 
 ## Pull requests
 

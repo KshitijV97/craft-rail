@@ -54,6 +54,8 @@ python3 -m unittest discover -s tests -v
 
 See the [validation guide](docs/framework/validation.md) for exact checks, warning behavior, and known limits.
 
+The repository also has pinned developer-only lint, strict type-check, coverage, GitHub Actions workflow lint, and pre-commit tools. Install them with `python3 -m pip install -r requirements-dev.txt`, then run `pre-commit install`. See [Python quality checks](docs/framework/python-quality.md) for the full local and CI workflow.
+
 The initializer creates the next numbered folder under `specs/` from the feature templates. Mark the specification approved through your team's review process before implementation.
 
 ## Adopt into an existing project

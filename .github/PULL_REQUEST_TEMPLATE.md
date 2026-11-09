@@ -4,8 +4,9 @@
 
 ## Validation
 
-- [ ] `python3 -m unittest discover -s tests -v`
-- [ ] `python3 scripts/validate_docs.py`
+- [ ] `pre-commit run --all-files`
+- [ ] `python -m unittest discover -s tests -v` on supported Python versions (when available)
+- [ ] `python3 -m venv .venv-docs && .venv-docs/bin/pip install -r requirements-docs.txt && .venv-docs/bin/zensical build --clean --strict` (for documentation changes)
 - [ ] Other checks (list exact commands and outcomes):
 
 ## Documentation impact

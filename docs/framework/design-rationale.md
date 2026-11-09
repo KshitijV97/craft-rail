@@ -54,7 +54,7 @@ IDs have a maintenance cost. Avoid numbering every sentence; reserve identifiers
 
 ## Why Python for the repository tooling
 
-The two core scripts solve small repository tasks: copy and number a feature folder, and identify selected documentation structure errors. Python was chosen because it is commonly available on developer and CI machines, has a readable standard library, handles filesystem and text processing well, and can run without installing dependencies. The scripts use `argparse`, `pathlib`, `re`, `json`, and `unittest`; the core validator and initializer make no network calls. Python is also familiar to maintainers who may want to extend a small tool without introducing a compiled binary or runtime service.
+The two core scripts solve small repository tasks: copy and number a feature folder, and identify selected documentation structure errors. Python was chosen because it is commonly available on developer and CI machines, has a readable standard library, handles filesystem and text processing well, and can run without installing dependencies. The scripts use `argparse`, `pathlib`, `re`, and `json`; the core validator and initializer make no network calls. Python is also familiar to maintainers who may want to extend a small tool without introducing a compiled binary or runtime service.
 
 This choice optimizes for a low-friction baseline, not maximum language neutrality or exhaustive parsing. Python is an extra interpreter requirement for the scripts and tests; users of other ecosystems may prefer a native tool. The scripts are not a stable public API, package, or general-purpose specification engine. The standard library has no YAML or OpenAPI parser and no Mermaid renderer. That is why unsupported checks are disclosed rather than silently approximated.
 
@@ -66,13 +66,14 @@ The website is a separate concern: its build dependency is pinned in `requiremen
 - Refuse to overwrite an existing feature folder and normalize titles to portable slugs.
 - Catch common structural mistakes, malformed JSON, broken simple relative links, and duplicate or undersized declared IDs.
 - Run locally and in GitHub Actions with the same standard-library code.
-- Add tests using `unittest` without a third-party test framework.
+- Run tests written with the standard-library `unittest` module on Python 3.10, 3.12, and 3.14 without installing a test runner.
+- Use optional, pinned development tools (Ruff, Mypy, pytest/coverage, and pre-commit) for stricter checks on the framework repository itself.
 
 ### What it does not enable
 
 - Judge whether prose is correct, complete, unambiguous, secure, or valuable.
 - Understand all Markdown link forms, resolve heading fragments, or validate links on the public internet.
-- Parse OpenAPI YAML, render Mermaid, validate JSON Schema semantics, or trace requirements to actual test behavior.
+- Validate OpenAPI semantics, render Mermaid, validate JSON Schema semantics, or prove that tests trace to actual behavior. The optional development hook checks YAML syntax only.
 - Enforce code architecture, block an agent from editing files, or replace code review and test suites.
 - Operate as a hosted service, accept team approvals, or produce a report database.
 
@@ -86,12 +87,15 @@ Adding a dependency should require a specific, recurring validation need, a clea
 | Markdown | Broad editor and hosting support | Human-readable specifications and guides | Typed data validation or relationship enforcement |
 | Mermaid | Diagrams remain source text | Reviewable architecture and behavior diagrams | Guaranteed rendering in every host or source-code conformance |
 | Python standard library | Low setup and no third-party runtime dependencies | Small cross-platform file/text tooling and unit tests | Deep language parsing, YAML support, diagrams rendering |
-| `unittest` | Ships with Python | Repeatable tests without installing a test runner | Rich fixtures/plugins without adding code |
-| GitHub Actions | Runs checks on pushes and pull requests | Automated baseline validation in GitHub | Local verification, review judgment, or hosted documentation deployment |
+| `unittest` + pytest-cov | Tests use standard-library `unittest`; pytest-cov adds local branch coverage | Cross-version core test execution and a 90% scripts coverage gate in the dev environment | Formal proof, exhaustive input testing, or zero untested behavior |
+| Ruff + Mypy | One fast lint/formatter and a strict static type checker | Catch common errors, formatting drift, and many type inconsistencies before runtime | Runtime type enforcement or correctness guarantees |
+| actionlint | Static checker designed for GitHub Actions | Catch workflow schema/expression errors and selected script-injection hazards | Run workflows or verify deployed infrastructure |
+| pre-commit | Manages local commit-time checks | Run formatter, lint, typing, docs validation, YAML/JSON checks, and tests before committing | Enforceable security; a contributor can bypass local hooks, so CI repeats the checks |
+| GitHub Actions | Runs cross-version tests, quality hooks, and site build on pushes and pull requests; creates releases on tags | Automated CI and repeatable GitHub release notes | Docs-site CD, local verification, or review judgment |
 | Zensical | Reuses Markdown, provides navigation/search/Mermaid, emits static files | A navigable developer manual and static output | Canonical storage, engineering semantics, or a stable mature generator API; it is pinned at beta 0.1.0 |
 | Vercel static deployment | Serves generated files without a CraftRail server | CDN delivery of the docs site | Automatic Git deploy unless repo integration is connected; documentation is currently behind deployment protection |
 
-GitHub Actions validates the framework repository. It is intentionally separate from Vercel's manual CLI deployment. The existing Vercel project did not connect to the GitHub repository, so a push alone does not update the deployed site today.
+GitHub Actions validates the framework repository and builds the site in CI. It is intentionally separate from Vercel's manual CLI deployment. The existing Vercel project did not connect to the GitHub repository, so a push alone does not update the deployed site today. The release workflow creates GitHub Release pages after a maintainer pushes an annotated semantic-version tag; it does not create tags or choose versions on the maintainer's behalf.
 
 ## Why the documentation site is only a presentation layer
 

@@ -19,6 +19,8 @@ The script resolves its repository root from its own file path. It uses only the
 - Inline relative Markdown links resolve to an existing local path.
 - `.json` files parse as JSON.
 
-The validator reports errors and warnings separately. It does not assess whether requirements are correct, complete, secure, or semantically consistent. It does not render Mermaid; Markdown links using reference definitions and fragment anchor existence are not checked. JSON Schema files are checked for JSON syntax, not against the JSON Schema meta-schema. OpenAPI YAML is not parsed because there is no YAML dependency; its warning is expected.
+The validator reports errors and warnings separately. It does not assess whether requirements are correct, complete, secure, or semantically consistent. It checks that Mermaid source starts with a recognized diagram declaration, but does not render diagrams or verify their architecture against code. Markdown links using reference definitions and fragment anchor existence are not checked. JSON Schema files are checked for JSON syntax, not against the JSON Schema meta-schema. The dependency-free core validator does not parse OpenAPI YAML or validate OpenAPI semantics, so it reports a warning. The separate pre-commit `check-yaml` hook checks YAML syntax in local hooks and CI.
 
-`--strict` returns a failing exit status if either an error or warning is reported. Therefore, with the current intentionally unvalidated OpenAPI YAML warning, ordinary validation passes and strict validation returns status 1 until YAML validation is added or the warning is otherwise resolved.
+`--strict` returns a failing exit status if either an error or warning is reported. Therefore, with the current OpenAPI semantics warning, ordinary validation passes and strict validation returns status 1 until semantic OpenAPI validation is added or the warning is otherwise resolved. The Zensical site build itself uses strict mode for website navigation and configuration errors.
+
+For Python formatting, lint, strict type checks, branch coverage, pre-commit hooks, CI, and release tags, see the [Python quality guide](python-quality.md).

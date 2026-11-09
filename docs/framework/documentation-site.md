@@ -45,7 +45,7 @@ The deployed project is named `craft-rail-docs` and builds from the repository r
 
 The source of every page is committed under `docs/`. To change existing guidance, edit its Markdown file; to add a page, create a Markdown file and add it to the explicit `nav` list in `zensical.toml`. Images and CSS live in `docs/images/` and `docs/stylesheets/`. Do not edit `site/`: it is generated output and ignored by Git. The site is a rendered view of the canonical repository documentation, so those source files remain usable without Vercel.
 
-For a local preview, install the pinned site tool in an isolated environment and run `zensical serve` as described above. Before publishing, run `zensical build --clean --strict`; this catches missing navigation pages and other build issues. The GitHub Actions workflow currently runs the standard-library tests and docs validator, but **does not build or deploy this website**.
+For a local preview, install the pinned site tool in an isolated environment and run `zensical serve` as described above. Before publishing, run `zensical build --clean --strict`; this catches missing navigation pages and other build issues. GitHub Actions runs the Python tests and quality checks and builds the site on pushes and pull requests. It does **not deploy** the site to Vercel.
 
 This Vercel project is currently CLI-driven. Since the repository is not connected to Vercel through GitHub, pushing a commit does not update the website. After reviewing a change, use the authenticated Vercel CLI from the repository root:
 

@@ -38,6 +38,7 @@ nav = [
     { "Adopt into an existing project" = "framework/adoption-existing-project.md" },
     { "Use as a GitHub template" = "framework/github-template-usage.md" },
     { "Validator reference" = "framework/validation.md" },
+    { "Python quality checks" = "framework/python-quality.md" },
     { "Ecosystem comparison" = "framework/ecosystem-comparison.md" },
     { "Documentation website" = "framework/documentation-site.md" },
     { "Brand and release decisions" = "framework/brand-and-positioning.md" },

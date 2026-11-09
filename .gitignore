@@ -3,6 +3,11 @@ __pycache__/
 .DS_Store
 .venv-docs/
 .venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 .vercel/
 site/
 .vercel
