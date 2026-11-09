@@ -80,6 +80,10 @@ Markdown is the canonical prose format because it is readable, diffable, and sup
 
 CraftRail can coexist with [GitHub Spec Kit](https://github.com/github/spec-kit) or [OpenSpec](https://openspec.dev/): choose one canonical home for each artifact and link across systems rather than maintaining conflicting copies. The [ecosystem comparison](docs/framework/ecosystem-comparison.md) describes the tradeoffs and was reviewed 2026-11-08.
 
+## Documentation website
+
+The browsable [CraftRail developer documentation](https://craft-rail-docs.vercel.app) is configured with [Zensical](zensical.toml) and serves the canonical Markdown in `docs/`. Vercel deployment protection currently requires visitors to authenticate; disable protection in the Vercel project settings to make the site publicly readable. Read the [documentation source](docs/index.md), the detailed [design rationale](docs/framework/design-rationale.md), or the [site build and update guide](docs/framework/documentation-site.md).
+
 ## Demo walkthrough
 
 The illustrative [account recovery feature](specs/000-example-feature/spec.md) starts with `FR-001` and two acceptance criteria. Its [plan](specs/000-example-feature/plan.md) includes a sequence view and operational considerations; [tasks](specs/000-example-feature/tasks.md) reference the spec; [verification](specs/000-example-feature/verification.md) maps criteria to tests and evidence. Read the [walkthrough](docs/examples/sample-feature-walkthrough.md) for the end-to-end path. The sample is not a production security design.

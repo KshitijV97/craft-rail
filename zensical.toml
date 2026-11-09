@@ -1,0 +1,62 @@
+[project]
+site_name = "CraftRail Documentation"
+site_description = "Developer guide to CraftRail: a Git-native, agent-neutral framework for structured engineering intent and verification."
+site_url = "https://craft-rail-docs.vercel.app"
+docs_dir = "docs"
+site_dir = "site"
+exclude_docs = "/project/"
+strict = true
+nav = [
+  { "Start here" = [
+    "index.md",
+    { "Overview and architecture" = "framework/overview.md" },
+    { "Quickstart" = "framework/quickstart.md" },
+    { "Repository structure" = "framework/repository-structure.md" },
+    { "Concepts and identifiers" = "framework/concepts.md" },
+    { "Design rationale and tool choices" = "framework/design-rationale.md" },
+  ] },
+  { "Specify" = [
+    { "Requirements writing" = "framework/requirements-writing-guide.md" },
+    { "Feature specifications" = "framework/feature-specification-guide.md" },
+    { "Worked example" = "examples/sample-feature-walkthrough.md" },
+  ] },
+  { "Design" = [
+    { "Architecture documentation" = "framework/architecture-documentation-guide.md" },
+    { "Mermaid diagrams" = "framework/diagrams-guide.md" },
+    { "Architecture decisions" = "framework/adr-guide.md" },
+    { "API and data contracts" = "framework/contracts-guide.md" },
+  ] },
+  { "Deliver" = [
+    { "Lifecycle and gates" = "framework/workflow.md" },
+    { "Agent-neutral prompts" = "framework/workflow-prompts.md" },
+    { "Tasks and planning" = "framework/tasks-guide.md" },
+    { "Verification and traceability" = "framework/traceability-and-verification.md" },
+    { "Change control" = "framework/change-control.md" },
+  ] },
+  { "Adopt and maintain" = [
+    { "Agent compatibility" = "framework/agent-compatibility.md" },
+    { "Adopt into an existing project" = "framework/adoption-existing-project.md" },
+    { "Use as a GitHub template" = "framework/github-template-usage.md" },
+    { "Validator reference" = "framework/validation.md" },
+    { "Ecosystem comparison" = "framework/ecosystem-comparison.md" },
+    { "Documentation website" = "framework/documentation-site.md" },
+    { "Brand and release decisions" = "framework/brand-and-positioning.md" },
+    { "FAQ" = "framework/faq.md" },
+  ] },
+]
+extra_css = ["stylesheets/extra.css"]
+
+[project.theme]
+features = [
+  "navigation.sections",
+  "navigation.path",
+  "navigation.footer",
+  "navigation.top",
+  "toc.follow",
+]
+favicon = "images/favicon.svg"
+
+[project.markdown_extensions]
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]

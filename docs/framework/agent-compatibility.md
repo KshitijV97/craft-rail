@@ -1,24 +1,66 @@
 # Agent compatibility
 
-The Core and Workflow are ordinary repository files and prompts. Adapters are optional pointers. **Documented compatibility is not the same as direct product testing.** No direct interactive end-to-end session has been run with Codex, Claude Code, or OpenCode as part of this repository draft.
+CraftRail separates its engineering process from the product used to assist with it. Requirements, plans, decisions, contracts, verification, and workflow prompts are files or ordinary instructions. Tool-specific files only tell an agent where to find shared context.
 
-| Agent | Shared instructions | Adapter/config | Documented behavior | Directly verified here |
+> **Compatibility is documented from official product guidance. Direct interactive testing is a separate claim.**
+
+No direct end-to-end instruction-loading test has been run in Codex, Claude Code, or OpenCode as part of this repository draft. The matrix below describes supported/documented file discovery and labels verification honestly.
+
+## Compatibility matrix
+
+| Agent | Canonical shared instruction | Adapter/config in this repository | Documented behavior | Directly tested here |
 |---|---|---|---|---|
-| Codex | Root `AGENTS.md` | None required | Codex project guidance discovers `AGENTS.md`; nested files may scope instructions. | No |
-| Claude Code | Root `AGENTS.md` | `CLAUDE.md` contains `@AGENTS.md` | Claude Code supports importing another instruction file with `@path`. | No |
-| OpenCode | Root `AGENTS.md` | None required | OpenCode instruction discovery uses `AGENTS.md`; its current docs explicitly say it does not fall back to `CLAUDE.md`. | No |
+| Codex | Root `AGENTS.md` | None required | Codex reads project `AGENTS.md`; nested guidance can narrow rules for a directory. | No |
+| Claude Code | Root `AGENTS.md` | Root `CLAUDE.md` imports `@AGENTS.md` | Claude Code supports `@path` imports in `CLAUDE.md`; its current docs also describe when it reads `AGENTS.md` directly. | No |
+| OpenCode | Root `AGENTS.md` | None required | OpenCode instruction discovery reads `AGENTS.md`; current docs explicitly say it does not use `CLAUDE.md` as fallback. | No |
 
-The compatibility evidence is current official documentation linked below, reviewed 2026-11-08. This repository has not tested instruction loading inside each agent application. The Python tooling and Markdown links are independently testable without any agent.
-
-| Capability | Status |
+| Shared behavior | State |
 |---|---|
-| Same requirements, diagrams, decisions, and workflow files usable by all three | Documented; acceptance test described, not directly run in all products |
-| Provider-specific skills, slash commands, hooks, MCP, or runtime | Optional future adapters; not required or included |
-| Claude import syntax | Documented via official syntax; not executed in Claude Code |
-| OpenCode `CLAUDE.md` fallback | Not supported per current OpenCode docs; do not rely on it |
+| Markdown specifications and neutral prompts can be read by each product | Documented compatibility; exact model adherence is not guaranteed |
+| Optional skills, slash commands, hooks, MCP, or provider runtime | Not included or required; future adapters may add optional convenience |
+| Directly tested instruction loading and cross-agent task outcome | Pending portability acceptance test |
 
-Official references: [Codex AGENTS.md guidance](https://developers.openai.com/codex/guides/agents-md/), [Claude Code memory and imports](https://docs.anthropic.com/en/docs/claude-code/memory), [OpenCode instructions](https://opencode.ai/docs/instructions/).
+Official sources, reviewed 2026-11-08: [Codex project instructions](https://developers.openai.com/codex/guides/agents-md/), [Claude Code memory and imports](https://docs.anthropic.com/en/docs/claude-code/memory), [OpenCode instructions](https://opencode.ai/docs/instructions/). These sources establish documented support; they do not prove this particular checkout was opened in each product.
+
+## Why the file setup is intentionally asymmetric
+
+`AGENTS.md` is the only shared policy file because maintaining three copies would create instruction drift. Codex and OpenCode consume this shared filename directly. Claude Code has its own project memory conventions, so `CLAUDE.md` contains an import pointer rather than another policy. OpenCode's docs explicitly distinguish its current instruction discovery from `CLAUDE.md`; creating a Claude file must not be mistaken for OpenCode compatibility.
+
+If a future agent needs another filename or config, add a minimal adapter that refers to canonical docs. Document what that adapter can and cannot load. Do not store requirements in an agent-specific command file.
+
+## Use the same repository across agents
+
+For each new session, open the repository root and ask the agent to:
+
+1. Read `AGENTS.md` and summarize its relevant instructions.
+2. Read the specific feature spec and the project's applicable requirements/accepted ADRs.
+3. State the spec status and identify ambiguities before proposing implementation.
+4. Work in approved scope, update ordinary repository files, run relevant checks, and report exact outcomes.
+
+The user prompt can use ordinary language. The supplied [workflow prompts](workflow-prompts.md) are examples; none depend on a proprietary command, skill name, or tool invocation. Project knowledge remains in Git when switching agents.
 
 ## Portability acceptance test
 
-An adopter should clone the same repository, open it at the repository root in Codex, Claude Code, and OpenCode, and ask each to summarize the same requirement and propose a plan without editing. Confirm each identifies the same `AGENTS.md` policy and canonical spec, and that no provider configuration or migrated project knowledge is needed. Then make a small approved documentation change in each environment and compare diffs. This procedure is documented, not claimed as already passed.
+Run this before claiming direct cross-agent verification:
+
+1. Use the same commit or working tree in Codex, Claude Code, and OpenCode. Open each at the repository root.
+2. Ask each to identify the same `AGENTS.md` policy, one requirement, one approved feature spec, and one applicable ADR. Do not ask it to edit yet.
+3. Ask each to draft the same small documentation change with no code mutation. Compare whether they cite the same source and preserve the same intent.
+4. After human approval, ask each to make the same small edit and run the same local validator. Review diffs and exact commands.
+5. Record tool/version/date, instruction files actually loaded, observed differences, and failures. Do not convert a single successful session into a guarantee about future model behavior.
+
+The test is intentionally about shared project knowledge and conventions, not identical prose or model output. If a product cannot load an adapter, update the adapter and record the limitation. Keep this result table honest:
+
+| Agent | Version/date | Shared source loaded? | Same requirement/spec found? | Check outcome | Notes |
+|---|---|---|---|---|---|
+| Codex | pending | pending | pending | pending | Not run in this draft |
+| Claude Code | pending | pending | pending | pending | Not run in this draft |
+| OpenCode | pending | pending | pending | pending | Not run in this draft |
+
+## Known limitations
+
+- File discovery only supplies context; it cannot guarantee instruction adherence.
+- Global user rules or nested project files can add instructions. Review the effective instruction chain when behavior differs.
+- Large instruction files can be truncated or consume context. Keep root guidance concise and link to relevant docs.
+- This project does not provide model-provider integrations, agents, skills, command files, or hooks.
+- The portfolio test has not yet been run directly in the three products.
