@@ -49,12 +49,9 @@ Create a feature and validate locally:
 ```bash
 python3 scripts/new_feature.py "User authentication"
 python3 scripts/validate_docs.py
-python3 -m unittest discover -s tests -v
 ```
 
-See the [validation guide](docs/framework/validation.md) for exact checks, warning behavior, and known limits.
-
-The repository also has pinned developer-only lint, strict type-check, coverage, GitHub Actions workflow lint, and pre-commit tools. Install them with `python3 -m pip install -r requirements-dev.txt`, then run `pre-commit install`. See [Python quality checks](docs/framework/python-quality.md) for the full local and CI workflow.
+See the [validation guide](docs/framework/validation.md) for what the checks cover and where their limits are.
 
 The initializer creates the next numbered folder under `specs/` from the feature templates. Mark the specification approved through your team's review process before implementation.
 
@@ -66,15 +63,17 @@ Copy only the conventions you need. First add the canonical `AGENTS.md`, then se
 
 ```text
 AGENTS.md, CLAUDE.md       Shared instructions and minimal adapter
-docs/framework/            Framework guidance, workflow, compatibility
-docs/project/              Starter project brief, requirements, architecture, contracts
+docs/adoption/             Guides for using CraftRail in your own project
+docs/implementation/       Technical implementation of CraftRail itself
+docs/framework/            Detailed guides linked by both documentation parts
+docs/project/              Starter brief, requirements, architecture, and contracts
 specs/                     Feature-specific specs, plans, tasks, verification
 templates/                 Reusable blank artifacts
 scripts/                   Feature initializer and documentation validator
 tests/                     Standard-library tests
 ```
 
-See [the full structure guide](docs/framework/repository-structure.md).
+See [the repository structure guide](docs/framework/repository-structure.md) in the adoption docs.
 
 ## Formats and integrations
 
@@ -82,18 +81,19 @@ Markdown is the canonical prose format because it is readable, diffable, and sup
 
 CraftRail can coexist with [GitHub Spec Kit](https://github.com/github/spec-kit) or [OpenSpec](https://openspec.dev/): choose one canonical home for each artifact and link across systems rather than maintaining conflicting copies. The [ecosystem comparison](docs/framework/ecosystem-comparison.md) describes the tradeoffs and was reviewed 2026-11-08.
 
-## Documentation website
+## Documentation
 
-The browsable [CraftRail developer documentation](https://craft-rail-docs.vercel.app) is configured with [Zensical](zensical.toml) and serves the canonical Markdown in `docs/`. Vercel deployment protection currently requires visitors to authenticate; disable protection in the Vercel project settings to make the site publicly readable. Read the [documentation source](docs/index.md), the detailed [design rationale](docs/framework/design-rationale.md), or the [site build and update guide](docs/framework/documentation-site.md).
+The [CraftRail documentation site](https://craft-rail-docs.vercel.app) is organized for two audiences:
+
+1. [Docs for adoption](https://craft-rail-docs.vercel.app/adoption/) — start a new project, use the GitHub template, adopt CraftRail into an existing repo, and follow the engineering workflow.
+2. [Technical implementation of CraftRail](https://craft-rail-docs.vercel.app/implementation/) — understand this repository's architecture, Python tools, quality pipeline, releases, and documentation-site build.
+
+The hosted site may ask for Vercel authentication. The same adoption guides are available in [`docs/adoption/`](docs/adoption/) and the source pages they link to.
 
 ## Demo walkthrough
 
 The illustrative [account recovery feature](specs/000-example-feature/spec.md) starts with `FR-001` and two acceptance criteria. Its [plan](specs/000-example-feature/plan.md) includes a sequence view and operational considerations; [tasks](specs/000-example-feature/tasks.md) reference the spec; [verification](specs/000-example-feature/verification.md) maps criteria to tests and evidence. Read the [walkthrough](docs/examples/sample-feature-walkthrough.md) for the end-to-end path. The sample is not a production security design.
 
-## Project status and governance
-
-This is a first working draft prepared for review. Brand use is provisional: the brief identifies a Japanese company using the Craftrail name at [craftrail.co.jp](https://craftrail.co.jp/), creating a material confusion risk. Review the name before public promotion, domain purchase, or brand investment; no trademark, domain, or GitHub handle clearance is claimed. The MIT license file is provisional pending owner review. See [positioning and brand risk](docs/framework/brand-and-positioning.md), [roadmap](ROADMAP.md), [contributing](CONTRIBUTING.md), and [support](SUPPORT.md).
-
 ## License
 
-Provisional MIT draft; owner confirmation is required before public release. See [LICENSE](LICENSE) and [recorded decisions](docs/framework/assumptions-and-decisions.md).
+See [LICENSE](LICENSE) for the license terms.

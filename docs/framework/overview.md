@@ -57,4 +57,4 @@ The documentation website is a presentation layer over repository Markdown. The 
 
 Continue with the [repository structure](repository-structure.md), [workflow](workflow.md), or [quickstart](quickstart.md).
 
-For the reasons behind the format, workflow, Python tooling, and website choices—including their tradeoffs—see the [developer design rationale](design-rationale.md).
+For the reasons behind the format, workflow, Python tooling, and website choices—including their tradeoffs—see the [technical implementation docs](../implementation/index.md).
