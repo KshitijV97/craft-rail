@@ -46,7 +46,7 @@ The validator checks selected structure and syntax offline. It cannot decide whe
 
 ## Use a coding agent
 
-Open the repository root in Codex, Claude Code, or OpenCode. Ask the agent to read the root `AGENTS.md`, the project brief, relevant requirements, and applicable accepted ADRs. Provide the specific feature path instead of asking it to load the whole docs tree. Claude Code's `CLAUDE.md` imports the shared file; OpenCode reads the shared `AGENTS.md` itself. Compatibility is documented, while direct interactive testing remains pending.
+Open the repository root in Codex, Claude Code, or OpenCode and describe your task normally. The project instructions make CraftRail the default, so no separate setup prompt is needed. Each agent should read the relevant project brief, requirements, accepted ADRs, and feature records as directed by `AGENTS.md`; avoid loading the whole docs tree. Claude Code's root `CLAUDE.md` imports the shared file; OpenCode reads `AGENTS.md` itself. Compatibility is documented, while direct interactive testing remains pending.
 
 Use the prompts in [workflow prompts](workflow-prompts.md) as ordinary chat instructions. Read their output as a proposal until the appropriate human approves it.
 

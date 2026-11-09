@@ -28,7 +28,7 @@ CraftRail provides reusable project structure and templates, stable requirement 
 | Workflow | Discover, Specify, Clarify, Plan, Tasks, Analyze, Implement, Verify, Converge | Markdown guidance and prompts |
 | Adapters | Agent-specific instruction discovery and optional integrations | Minimal pointers/configuration only |
 
-`AGENTS.md` is the shared canonical instruction file. `CLAUDE.md` imports it using Claude Code's documented import syntax. OpenCode reads `AGENTS.md` directly; it does not use `CLAUDE.md` as a fallback. No core artifact or tool requires an AI provider. See the [compatibility matrix](docs/framework/agent-compatibility.md).
+`AGENTS.md` is the shared canonical instruction file and makes CraftRail the default workflow in this repository. Claude Code automatically loads the minimal root `CLAUDE.md` adapter, which imports `AGENTS.md`; OpenCode reads `AGENTS.md` directly and does not use `CLAUDE.md` as a fallback. A developer using the GitHub template can open the project in any supported agent and describe the task normally, without a setup prompt or plugin. No core artifact or tool requires an AI provider. See the [compatibility matrix](docs/framework/agent-compatibility.md).
 
 ## Workflow
 

@@ -28,9 +28,17 @@ Official sources, reviewed 2026-11-08: [Codex project instructions](https://deve
 
 If a future agent needs another filename or config, add a minimal adapter that refers to canonical docs. Document what that adapter can and cannot load. Do not store requirements in an agent-specific command file.
 
+## Automatic use in Claude Code
+
+The GitHub template already contains a root `CLAUDE.md` with `@AGENTS.md`. Claude Code automatically loads project `CLAUDE.md` files when a session starts in the project or one of its subdirectories. It expands `@AGENTS.md` into the same session context. The shared instructions state that CraftRail is the default for this repository, so the user does not need to paste a setup prompt, run `/init`, install a plugin, or invoke a slash command. Open the cloned/generated repository in Claude Code and describe the task normally.
+
+Only the short shared instructions are loaded as always-on project context. Guides, requirements, feature specifications, plans, and ADRs are read when relevant, keeping token use lower than loading the entire documentation tree. This is documented behavior of Claude Code's project memory and import syntax; CraftRail's matrix still marks direct interactive testing as pending. This arrangement supplies context but cannot guarantee a model follows it.
+
+The same no-extra-prompt principle applies to Codex and OpenCode: open the repository and let each product discover root `AGENTS.md` according to its documented behavior. For a meaningful task, the agent should select relevant project artifacts from the instructions. No setup ceremony is required after using the template.
+
 ## Use the same repository across agents
 
-For each new session, open the repository root and ask the agent to:
+To verify compatibility, open the repository root in each product and ask the agent to:
 
 1. Read `AGENTS.md` and summarize its relevant instructions.
 2. Read the specific feature spec and the project's applicable requirements/accepted ADRs.

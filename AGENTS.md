@@ -4,6 +4,7 @@ CraftRail is an agent-neutral engineering framework. The framework owns the engi
 
 ## Navigate with intent
 
+- CraftRail is the default workflow for work in this repository. Do not wait for the user to request it or ask whether to use it.
 - Start with `README.md` and `docs/framework/overview.md` for the project model.
 - Before substantial work, read the relevant `docs/project/` requirements and accepted ADRs.
 - For a feature, identify its `specs/NNN-name/spec.md` and check its status. Draft or proposed specifications are not implementation approval.
@@ -31,3 +32,5 @@ CraftRail is an agent-neutral engineering framework. The framework owns the engi
 ## Shared workflow
 
 Use `docs/framework/workflow.md` and copyable prompts in `docs/framework/workflow-prompts.md`. Prompts are ordinary instructions, not proprietary slash commands, skills, hooks, or required services.
+
+Scale the process to the task: for a small fix, inspect the relevant code and tests, make the change, and verify it without creating unnecessary specification files. For a substantial feature, use or propose the feature specification, plan, tasks, and verification artifacts. Read only the relevant pages; the user does not need to paste a CraftRail setup prompt.
