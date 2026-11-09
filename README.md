@@ -42,7 +42,7 @@ These are quality gates, not nine required meetings. Combine or skip steps for l
 
 ## Quickstart: start a project
 
-Use **Use this template** on GitHub after the owner publishes this repository, or clone it locally. Replace the illustrative project files in `docs/project/`, review the engineering principles, add project requirements and architecture, and retain or adapt `AGENTS.md`. See [GitHub template usage](docs/framework/github-template-usage.md).
+Create a new project from the enabled [CraftRail GitHub template](https://github.com/kshitijv97/craft-rail) using **Use this template** → **Create a new repository**, or clone it locally. Replace the illustrative project files in `docs/project/`, review the engineering principles, add project requirements and architecture, and retain or adapt `AGENTS.md`. See [GitHub template usage](docs/framework/github-template-usage.md).
 
 Create a feature and validate locally:
 

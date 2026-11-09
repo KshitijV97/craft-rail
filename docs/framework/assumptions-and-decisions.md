@@ -1,6 +1,6 @@
 # Assumptions and decisions
 
-Reviewed 2026-11-09. The repository has an initial local commit and a Vercel production deployment. Confirm GitHub publishing and template status against the remote before claiming availability.
+Reviewed 2026-11-09. The repository is published at `kshitijv97/craft-rail`, GitHub template mode is enabled and verified, and the documentation is deployed on Vercel. Vercel deployment protection remains enabled.
 
 | ID | Decision / assumption | Rationale and consequence | Owner action |
 |---|---|---|---|
@@ -22,6 +22,6 @@ The supplied brief records an existing Japanese company, Craftrail Inc. (株式�
 
 - Confirm MIT or select another license and add an accurate copyright notice if needed.
 - Confirm maintainer identity and a private security contact/reporting route.
-- Confirm the published repository URL and verify GitHub template mode is enabled.
+- Review repository name risk and public positioning before further promotion.
 - Review name/namespace clearance and public positioning.
 - Run the portability acceptance procedure with Codex, Claude Code, and OpenCode before claiming direct verification.

@@ -4,7 +4,7 @@ This guide gets a team from an empty or existing repository to one reviewable fe
 
 ## Path A: start a new project from the template
 
-1. Create a repository from the published CraftRail template, or clone/copy it locally. GitHub template creation is explained in [template usage](github-template-usage.md).
+1. Create a repository from the [published CraftRail GitHub template](https://github.com/kshitijv97/craft-rail), or clone/copy it locally. GitHub template creation is explained in [template usage](github-template-usage.md).
 2. Read `AGENTS.md` and `docs/framework/overview.md`. Keep `AGENTS.md` as the shared instructions file; adapt it only to actual project rules.
 3. Rewrite `docs/project/product-brief.md` with evidence, users, outcomes, boundaries, constraints, assumptions, and open questions. This is project intent, not a landing page.
 4. Review `docs/project/engineering-principles.md`. Adopt or edit principles through the project decision process rather than accepting the starter verbatim.
