@@ -51,6 +51,18 @@ nav = [
     ] },
     { "Documentation website" = "framework/documentation-site.md" },
   ] },
+  { "3. Product direction" = [
+    "direction/vision.md",
+    { "Decisions" = [
+      "adr/README.md",
+      "adr/ADR-002-evidence-gated-acceptance-is-the-core.md",
+      "adr/ADR-003-verification-status-is-computed.md",
+      "adr/ADR-004-evidence-is-fresh-only-at-its-commit.md",
+      "adr/ADR-005-craftrail-ships-as-an-installable-cli.md",
+      "adr/ADR-006-acceptance-is-recorded-on-the-protected-branch.md",
+      "adr/ADR-007-acceptance-criteria-declare-a-required-verification-level.md",
+    ] },
+  ] },
 ]
 extra_css = ["stylesheets/extra.css"]
 
