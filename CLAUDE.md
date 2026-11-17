@@ -12,7 +12,7 @@ Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-
 
 ### Domain docs
 
-Single-context, using CraftRail's existing `docs/project/glossary.md` and `docs/project/decisions/`. See `docs/agents/domain.md`.
+Single-context: root `GLOSSARY.md` and `docs/adr/` for CraftRail's own model; `docs/project/` is template starter content. See `docs/agents/domain.md`.
 
 ## Working agreements
 

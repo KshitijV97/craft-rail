@@ -24,6 +24,9 @@ CraftRail is an agent-neutral engineering framework. The framework owns the engi
 - Update affected specs, diagrams, contracts, decisions, and traceability after approved changes.
 - Never alter an accepted requirement or ADR merely to make implementation appear compliant.
 
+- `CODING_STANDARDS.md` holds the defect classes code and docs here must avoid; read it before writing or reviewing code, and update it when a change establishes or retires a rule.
+- `REVIEW.md` holds the review policy (severity, what not to flag, evidence a finding needs); read it before reviewing a change, and update it when the team's review practice changes.
+
 ## Verification and reporting
 
 - Run relevant checks and report exact commands and outcomes. Do not claim unrun checks passed.
