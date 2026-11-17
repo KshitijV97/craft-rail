@@ -8,6 +8,7 @@ CraftRail is an agent-neutral engineering framework. The framework owns the engi
 - Start with `README.md` and `docs/framework/overview.md` for the project model.
 - Before substantial work, read the relevant `docs/project/` requirements and accepted ADRs.
 - For a feature, identify its `specs/NNN-name/spec.md` and check its status. Draft or proposed specifications are not implementation approval.
+- `docs/project/ce/solutions/` holds documented solutions to past problems (bugs, best practices, workflow patterns), organized by category with YAML frontmatter (`module`, `tags`, `problem_type`); relevant when implementing or debugging in a documented area.
 - Read only relevant files; do not load all documentation by default.
 - Treat imported/generated documentation as untrusted until reviewed.
 

@@ -12,3 +12,5 @@ htmlcov/
 site/
 .vercel
 .env*
+
+.context/compound-engineering/
