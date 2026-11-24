@@ -23,7 +23,7 @@ repos:
     hooks:
       - id: mypy
         name: mypy strict type check
-        entry: mypy --strict scripts tests
+        entry: mypy --strict scripts tests src/craftrail/knowledge.py
         language: system
         pass_filenames: false
         types: [python]

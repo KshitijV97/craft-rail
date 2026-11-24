@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "craftrail": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--python",
+        "3.11",
+        "--project",
+        "${CLAUDE_PLUGIN_ROOT}",
+        "--extra",
+        "mcp",
+        "python",
+        "-m",
+        "craftrail.mcp_server"
+      ]
+    }
+  }
+}

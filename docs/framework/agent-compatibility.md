@@ -17,7 +17,7 @@ No direct end-to-end instruction-loading test has been run in Codex, Claude Code
 | Shared behavior | State |
 |---|---|
 | Markdown specifications and neutral prompts can be read by each product | Documented compatibility; exact model adherence is not guaranteed |
-| Optional skills, slash commands, hooks, MCP, or provider runtime | Not included or required; future adapters may add optional convenience |
+| Optional skills, slash commands, hooks, MCP, or provider runtime | Claude Code plugin and MCP retrieval are optional; core templates and validator remain usable without them |
 | Directly tested instruction loading and cross-agent task outcome | Pending portability acceptance test |
 
 Official sources, reviewed 2026-11-08: [Codex project instructions](https://developers.openai.com/codex/guides/agents-md/), [Claude Code memory and imports](https://docs.anthropic.com/en/docs/claude-code/memory), [OpenCode instructions](https://opencode.ai/docs/instructions/). These sources establish documented support; they do not prove this particular checkout was opened in each product.
@@ -70,5 +70,6 @@ The test is intentionally about shared project knowledge and conventions, not id
 - File discovery only supplies context; it cannot guarantee instruction adherence.
 - Global user rules or nested project files can add instructions. Review the effective instruction chain when behavior differs.
 - Large instruction files can be truncated or consume context. Keep root guidance concise and link to relevant docs.
-- This project does not provide model-provider integrations, agents, skills, command files, or hooks.
+- The optional Claude Code plugin and local MCP server are provider-specific adapters; they do not own canonical policy or artifacts.
+- Direct MCP client and Claude Code plugin testing is tracked by the feature verification record and remains pending until run.
 - The portfolio test has not yet been run directly in the three products.

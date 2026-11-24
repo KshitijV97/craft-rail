@@ -32,15 +32,15 @@ pre-commit install
 ## Run the checks directly
 
 ```bash
-ruff check scripts tests
-ruff format --check scripts tests
-mypy --strict scripts tests
+ruff check scripts tests src
+ruff format --check scripts tests src
+mypy --strict scripts tests src/craftrail/knowledge.py
 pytest
 python scripts/validate_docs.py
 pre-commit run --all-files
 ```
 
-`pytest` runs the `unittest.TestCase` suite and applies branch coverage settings from `pyproject.toml`. The repository continues to use the standard-library `unittest` runner in its Python-version compatibility matrix, so the core tests can also run without installing pytest:
+`pytest` runs the `unittest.TestCase` suite and applies branch coverage settings from `pyproject.toml`. The provider-independent knowledge reader is included in Ruff and Mypy checks; the optional MCP adapter is excluded from Mypy because its SDK is not a core development dependency. The repository continues to use the standard-library `unittest` runner in its Python-version compatibility matrix, so the core tests can also run without installing pytest:
 
 ```bash
 python -m unittest discover -s tests -v
