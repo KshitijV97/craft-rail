@@ -59,6 +59,14 @@ The state of an acceptance criterion, computed from its accepted verification li
 
 _Avoid_: Test status, done, complete, partially verified, blocked
 
+**Reason code**:
+The single cause CraftRail reports for an acceptance criterion's status: `no-link`, `no-evidence`, `stale`, `skipped`, `failed`, `below-level`, or `check-not-found`.
+_Avoid_: Error, failure message
+
+**Acceptance change**:
+A verification link or waiver added, changed, or removed on a branch relative to its base. It is proposed until merged and is flagged for human review.
+_Avoid_: Spec change (too broad)
+
 **Roll-up**:
 A view of verification status over many acceptance criteria, such as a requirement, feature, or project. It has no status of its own.
 _Avoid_: Requirement status, feature status
@@ -84,3 +92,7 @@ _Avoid_: Feedback loop, CI loop (CI runs checks; the loop judges criteria)
 **Agent workflow**:
 The process an agent follows to brainstorm, plan, specify, implement, and review work, supplied by tools such as Matt Pocock's skills or Compound Engineering. CraftRail runs inside an agent workflow; it does not supply one.
 _Avoid_: CraftRail lifecycle, framework process
+
+**Reference workflow**:
+CraftRail's own lifecycle and workflow prompts, kept for teams that have no agent workflow. CraftRail does not depend on it.
+_Avoid_: CraftRail process, the framework workflow

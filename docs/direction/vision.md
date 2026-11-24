@@ -62,12 +62,16 @@ A workflow calls CraftRail the way it calls a test runner: through the CLI's exi
 | Links and waivers live in spec files, not test code. The first evidence format is JUnit XML | [ADR-008](../adr/ADR-008-links-live-in-spec-files-and-evidence-comes-from-junit.md) |
 | A failing check outranks a waiver. `unit` < `component` < `integration` < `acceptance`; `contract`, `architecture`, and `non-functional` must match exactly | [ADR-009](../adr/ADR-009-failing-outranks-waived-and-levels-form-one-chain.md) |
 | CraftRail is the verification loop for software factories and complements agent workflow tools | [ADR-010](../adr/ADR-010-craftrail-is-the-verification-loop-for-software-factories.md) |
+| Stable IDs and feature folders stay as the engine's input; the 9-step lifecycle becomes a reference workflow | [ADR-011](../adr/ADR-011-craftrail-conventions-stay-its-lifecycle-becomes-a-reference.md) |
+| Acceptance criteria live only in CraftRail spec files; plans and issues refer to their IDs | [ADR-012](../adr/ADR-012-acceptance-criteria-live-in-craftrail-spec-files.md) |
+| The CLI's exit code and JSON output are the integration contract, plus one agent-neutral skill | [ADR-013](../adr/ADR-013-the-cli-output-is-the-integration-contract.md) |
+| Pull requests that change links or waivers are flagged (exit code `3`) so a factory routes only those to a human | [ADR-014](../adr/ADR-014-acceptance-changes-are-flagged-for-human-review.md) |
 
 The vocabulary behind these terms is in the repository [glossary](https://github.com/kshitijv97/craft-rail/blob/main/GLOSSARY.md). The engine's core stays standard-library-only Python; dependencies belong in optional adapters.
 
 ## The first version
 
-The first version is one command, `craftrail status`. It reads acceptance criteria and accepted links from spec files, reads a JUnit XML report, prints each criterion's status with its reason, and exits non-zero if any criterion is not verified or waived. Run in CI, it becomes the gate.
+The first version is one command, `craftrail status`. It reads acceptance criteria and accepted links from spec files, reads a JUnit XML report, prints each criterion's status with its reason, and exits non-zero if any criterion is not verified or waived. Run in CI, it becomes the gate. Its requirements and acceptance criteria are in [feature 002](https://github.com/kshitijv97/craft-rail/blob/main/specs/002-evidence-gated-status/spec.md), which is proposed and not yet approved for implementation.
 
 It will not do these things:
 
@@ -79,7 +83,7 @@ It will not do these things:
 
 ## How the first version will be judged
 
-CraftRail will be used on its own repository first, then on one external project. It has to show measurable improvement over a baseline of Compound Engineering, test-driven development, and CI on the same project:
+For now the first version is tested only on CraftRail's own repository; an external project comes later. It has to show measurable improvement over the current baseline there (Compound Engineering, test-driven development, and CI without CraftRail):
 
 - Criteria found with no evidence.
 - Criteria whose only evidence was a check below the required level.
@@ -90,7 +94,7 @@ Ambiguous requirements, architectural drift, knowledge fragmentation, and change
 ## Still open
 
 - The syntax for criteria, links, and waivers in spec files.
-- How acceptance criteria written by a workflow tool (a plan, an issue, a spec) reach CraftRail without becoming a second source of truth.
-- What happens to CraftRail's current lifecycle, workflow prompts, and repository template under the complementary positioning.
-- What the machine-readable output looks like, so an agent can act on it.
-- Which external project the first version is tested against.
+- What happens to the hand-typed status column in existing `verification.md` files.
+- How the agent-neutral skill is designed and verified.
+- What the repository template keeps once the CLI exists.
+- Which external project follows dogfooding.

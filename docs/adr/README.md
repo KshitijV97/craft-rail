@@ -17,3 +17,7 @@ These are separate from `docs/project/decisions/`, which is starter content for 
 | [ADR-008](ADR-008-links-live-in-spec-files-and-evidence-comes-from-junit.md) | Links and waivers live in spec files; evidence starts with JUnit XML | accepted |
 | [ADR-009](ADR-009-failing-outranks-waived-and-levels-form-one-chain.md) | Failing outranks waived; verification levels form one ordered chain | accepted |
 | [ADR-010](ADR-010-craftrail-is-the-verification-loop-for-software-factories.md) | CraftRail is the verification loop for software factories, alongside existing agent workflows | accepted |
+| [ADR-011](ADR-011-craftrail-conventions-stay-its-lifecycle-becomes-a-reference.md) | CraftRail's conventions stay; its lifecycle becomes a reference workflow | accepted |
+| [ADR-012](ADR-012-acceptance-criteria-live-in-craftrail-spec-files.md) | Acceptance criteria live in CraftRail spec files; workflow tools refer to them | accepted |
+| [ADR-013](ADR-013-the-cli-output-is-the-integration-contract.md) | The CLI's exit code and JSON output are the integration contract | accepted |
+| [ADR-014](ADR-014-acceptance-changes-are-flagged-for-human-review.md) | Changes to links or waivers are flagged for human review | accepted |
