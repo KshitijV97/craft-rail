@@ -12,3 +12,6 @@ htmlcov/
 site/
 .vercel
 .env*
+
+.context/compound-engineering/
+CLAUDE.local.md

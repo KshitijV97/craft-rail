@@ -50,6 +50,11 @@ nav = [
       "framework/validation.md",
     ] },
     { "Documentation website" = "framework/documentation-site.md" },
+    { "Contributor and agent setup" = [
+      "agents/issue-tracker.md",
+      "agents/triage-labels.md",
+      "agents/domain.md",
+    ] },
   ] },
 ]
 extra_css = ["stylesheets/extra.css"]

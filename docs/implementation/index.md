@@ -12,6 +12,7 @@ This section documents how the CraftRail repository itself is organized, built, 
 | Automated checks | Ruff, Mypy strict mode, pytest coverage, pre-commit, Actionlint, GitHub Actions | [Python quality checks](../framework/python-quality.md) |
 | Documentation website | Zensical reads canonical Markdown and builds static pages; Vercel serves `site/` | [Documentation site](../framework/documentation-site.md) |
 | Agent neutrality | `AGENTS.md` is canonical; `CLAUDE.md` imports it; OpenCode reads `AGENTS.md` directly | [Agent compatibility](../framework/agent-compatibility.md) |
+| Contributor and agent setup | Issues in GitHub via `gh`, five triage labels, CraftRail's own glossary and ADRs kept apart from adopter starter content, and the repository-root `CODING_STANDARDS.md` and `REVIEW.md` | [Issue tracker](../agents/issue-tracker.md), [triage labels](../agents/triage-labels.md), [domain docs](../agents/domain.md) |
 
 ## Build and test the repository
 
