@@ -1,6 +1,6 @@
 # Critical review of CraftRail (November 2026)
 
-- **Status:** proposed — findings are verified; remediations are proposals that need owner approval before implementation
+- **Status:** proposed — findings are verified; remediations are proposals that need owner approval before implementation. See the addendum for findings that ADR-002 to ADR-007 have since answered.
 - **Reviewed commit:** `e730bf1` (main, 2026-11-09)
 - **Scope:** framework model, workflow, templates, validator, feature initializer, agent adapters, CI/release, template distribution, and project governance
 
@@ -45,6 +45,23 @@ The core thesis — keep intent, decisions, and evidence in Git, agent-neutral �
 | F-17 | Documentation duplication and hard-coded facts will drift | Low | Inspected |
 | F-18 | Supply-chain and CI hardening gaps | Low | Inspected |
 | F-19 | Unresolved release blockers: license, brand, docs hosting | Governance | Inspected |
+
+## Addendum: findings answered by later decisions (2026-11-24)
+
+After this review, product discovery on 2026-11-17 accepted ADR-002 to ADR-007 (see [CraftRail's ADRs](https://github.com/kshitijv97/craft-rail/tree/main/docs/adr) and the product direction page). Those records change the planned answer to several findings. They are decisions about the future engine, not shipped code: the validator, initializer, and templates reviewed here still behave as described, so the evidence above stays accurate for the current release.
+
+| Finding | Decision | What the decision settles | Still open |
+|---|---|---|---|
+| F-01 Placeholder spec passes as `verified` | [ADR-003](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-003-verification-status-is-computed.md), [ADR-004](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-004-evidence-is-fresh-only-at-its-commit.md) | Verification status is computed from evidence at the current commit; nobody types it in | The current validator still accepts the placeholder spec until the engine replaces it |
+| F-03 No traceability checks | [ADR-002](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-002-evidence-gated-acceptance-is-the-core.md), [ADR-007](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-007-acceptance-criteria-declare-a-required-verification-level.md) | The acceptance criterion is the unit of verification, linked to checks at a required level | The ID graph itself; the identity model in the Studio proposal is a candidate |
+| F-05 Approval is an editable string | [ADR-003](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-003-verification-status-is-computed.md), [ADR-006](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-006-acceptance-is-recorded-on-the-protected-branch.md) | Humans accept links and waivers; acceptance means merged to the protected branch through code-host review and CODEOWNERS | Spec `approved` status in the current templates is unchanged |
+| F-06 Guardrails are advisory | [ADR-002](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-002-evidence-gated-acceptance-is-the-core.md) | Evidence-gated acceptance is the core; conventions become engine input | Positioning while only the template ships |
+| F-07 Template ships maintainer content | [ADR-005](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-005-craftrail-ships-as-an-installable-cli.md) | The template becomes an optional starter, separate from the engine | Splitting the starter from this repository |
+| F-08 No upgrade path | [ADR-005](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-005-craftrail-ships-as-an-installable-cli.md) | A versioned CLI installed with `pipx`; each project pins its version | Nothing beyond building and releasing it |
+| F-14 No dogfooding | ADR-002 to ADR-007 and the repository `GLOSSARY.md` | CraftRail now records its own decisions and vocabulary | Own feature specs; converting D-001 to D-009 into ADRs |
+| F-15 Status vocabularies unvalidated | [ADR-004](https://github.com/kshitijv97/craft-rail/blob/main/docs/adr/ADR-004-evidence-is-fresh-only-at-its-commit.md) | Five computed verification statuses replace the hand-written verification vocabulary | Spec, task, and ADR status vocabularies |
+
+No decision yet covers F-02, F-04, F-09 to F-13, or F-16 to F-19. Phase 1 of the remediation order still applies to the template that ships today, because adopters use it until the engine exists.
 
 ## Findings and remediation
 
