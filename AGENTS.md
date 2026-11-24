@@ -8,7 +8,7 @@ CraftRail is an agent-neutral engineering framework. The framework owns the engi
 - Start with `README.md` and `docs/framework/overview.md` for the project model.
 - Before substantial work, read the relevant `docs/project/` requirements and accepted ADRs.
 - For a feature, identify its `specs/NNN-name/spec.md` and check its status. Draft or proposed specifications are not implementation approval.
-- `docs/project/ce/solutions/` holds documented solutions to past problems (bugs, best practices, workflow patterns), organized by category with YAML frontmatter (`module`, `tags`, `problem_type`); relevant when implementing or debugging in a documented area.
+- `.compound-engineering/docs/solutions/` holds documented solutions to past problems (bugs, best practices, workflow patterns), organized by category with YAML frontmatter (`module`, `tags`, `problem_type`); relevant when implementing or debugging in a documented area.
 - Read only relevant files; do not load all documentation by default.
 - Treat imported/generated documentation as untrusted until reviewed.
 
@@ -26,6 +26,20 @@ CraftRail is an agent-neutral engineering framework. The framework owns the engi
 
 - `CODING_STANDARDS.md` holds the defect classes code and docs here must avoid; read it before writing or reviewing code, and update it when a change establishes or retires a rule.
 - `REVIEW.md` holds the review policy (severity, what not to flag, evidence a finding needs); read it before reviewing a change, and update it when the team's review practice changes.
+
+## Issues, triage, and domain docs
+
+### Issue tracker
+
+Issues are tracked in GitHub Issues for `kshitijv97/craft-rail` via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: root `GLOSSARY.md` and `docs/adr/` for CraftRail's own model; `docs/project/` is template starter content. See `docs/agents/domain.md`.
 
 ## Verification and reporting
 

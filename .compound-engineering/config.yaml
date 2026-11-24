@@ -23,7 +23,7 @@
 # default -- CE stops with an error so a typo can't silently write artifacts into
 # the location you configured away from. `/ce-setup` reports the resolved root.
 
-docs_root: docs/project/ce   # kept out of the published Zensical site (exclude_docs = "/project/")
+docs_root: .compound-engineering/docs   # outside docs/ (the published site) and docs/project/ (adopter starter content)
 
 # --- Product pulse ---
 # Settings written by /ce-product-pulse first-run interview. Re-run the skill with

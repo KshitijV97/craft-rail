@@ -38,4 +38,4 @@ If the concept you need isn't in the glossary yet, that's a signal: either you'r
 
 If your output contradicts an existing ADR, surface it explicitly rather than silently overriding. Accepted ADRs are historical records: never rewrite one to fit an implementation; supersede it with a new ADR that links back.
 
-> _Contradicts ADR-007 (event-sourced orders), but worth reopening because…_
+> _Contradicts ADR-NNN (the earlier decision), but worth reopening because…_

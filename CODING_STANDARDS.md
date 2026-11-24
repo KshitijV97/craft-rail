@@ -25,4 +25,4 @@ This first draft was written before the repository had merged pull requests or r
 
 ## Maintaining this file
 
-Add a rule only when a defect class appeared in a review finding the author fixed, a fix commit, a cleanup that removed it across the codebase, or a solution record in `docs/project/ce/solutions/`, and no check covers it. State the rule as a condition that stays true without naming volatile numbers or symbols, and group it by area. When a check starts enforcing a rule, or the team keeps declining findings under it, remove the rule.
+Add a rule only when a defect class appeared in a review finding the author fixed, a fix commit, a cleanup that removed it across the codebase, or a solution record in `.compound-engineering/docs/solutions/`, and no check covers it. State the rule as a condition that stays true without naming volatile numbers or symbols, and group it by area. When a check starts enforcing a rule, or the team keeps declining findings under it, remove the rule.
