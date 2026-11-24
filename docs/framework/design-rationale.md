@@ -1,3 +1,7 @@
+---
+description: "Why CraftRail is built the way it is: a provider-neutral core, Git-native records, explicit quality gates, and small agent adapters, with the tradeoffs and limits of each choice."
+---
+
 # Design rationale for developers
 
 This page explains why CraftRail is built the way it is, what the design enables, and where its limits are. It is intended to make the repository reviewable as an engineering system rather than just a collection of templates. The brief is the historical input; the canonical working conventions are the root `AGENTS.md` plus the Markdown, Mermaid, YAML, and JSON files linked from this documentation.
