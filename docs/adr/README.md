@@ -14,3 +14,6 @@ These are separate from `docs/project/decisions/`, which is starter content for 
 | [ADR-005](ADR-005-craftrail-ships-as-an-installable-cli.md) | CraftRail ships as a versioned, installable CLI | accepted |
 | [ADR-006](ADR-006-acceptance-is-recorded-on-the-protected-branch.md) | A link or waiver is accepted when it is on the protected base branch | accepted |
 | [ADR-007](ADR-007-acceptance-criteria-declare-a-required-verification-level.md) | Each acceptance criterion declares a required verification level | accepted |
+| [ADR-008](ADR-008-links-live-in-spec-files-and-evidence-comes-from-junit.md) | Links and waivers live in spec files; evidence starts with JUnit XML | accepted |
+| [ADR-009](ADR-009-failing-outranks-waived-and-levels-form-one-chain.md) | Failing outranks waived; verification levels form one ordered chain | accepted |
+| [ADR-010](ADR-010-craftrail-is-the-verification-loop-for-software-factories.md) | CraftRail is the verification loop for software factories, alongside existing agent workflows | accepted |

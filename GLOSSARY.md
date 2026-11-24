@@ -1,6 +1,6 @@
 # CraftRail
 
-CraftRail decides, from evidence produced by real tools, whether each acceptance criterion of a piece of software is satisfied. This glossary is the framework's own vocabulary. It is separate from the starter `docs/project/glossary.md` that adopting projects fill in.
+CraftRail gives software factories a deterministic verification loop: it decides, from evidence produced by real tools, whether each acceptance criterion of a piece of software is satisfied. This glossary is the framework's own vocabulary. It is separate from the starter `docs/project/glossary.md` that adopting projects fill in.
 
 ## Language
 
@@ -25,11 +25,11 @@ Anything a tool executes or a person performs that produces a pass, fail, or ski
 _Avoid_: Test (too narrow), verification (ambiguous with the status)
 
 **Verification level**:
-The kind of check, by what it exercises: `unit`, `component`, `integration`, `contract`, `architecture`, `acceptance`, or `non-functional`.
+The kind of check, by what it exercises. `unit`, `component`, `integration`, and `acceptance` form one ordered chain, lowest first. `contract`, `architecture`, and `non-functional` are separate kinds outside the chain.
 _Avoid_: Test type, test layer
 
 **Required verification level**:
-The minimum verification level an acceptance criterion declares for the checks that may verify it. A check below it does not count, however well it passes.
+The verification level an acceptance criterion declares for the checks that may verify it. On the ordered chain, a check at or above it counts; for a separate kind, only a check of exactly that kind counts.
 _Avoid_: Test strategy, coverage target
 
 **Verification link**:
@@ -55,7 +55,7 @@ The state of an acceptance criterion, computed from its accepted verification li
 - **Pending**: accepted links exist, but at least one has no fresh evidence.
 - **Failing**: at least one accepted link's check failed at the current commit. A check that fails on any run is failing, even if a retry passes.
 - **Verified**: every accepted link's check passed at the current commit.
-- **Waived**: a waiver covers the criterion.
+- **Waived**: a waiver covers the criterion and no accepted link's check is failing. Failing outranks waived.
 
 _Avoid_: Test status, done, complete, partially verified, blocked
 
@@ -70,3 +70,17 @@ _Avoid_: Skip, exception, override
 **Evidence-gated acceptance**:
 The rule that an acceptance criterion is accepted only on computed verification status, never on any party's claim that it works.
 _Avoid_: Sign-off, definition of done
+
+### Factory
+
+**Software factory**:
+A pipeline in which coding agents take work from a specification to a merged change with little human intervention.
+_Avoid_: Autopilot, agent pipeline (too vague about where humans gate the work)
+
+**Verification loop**:
+The cycle in which an agent changes code, CraftRail computes each acceptance criterion's verification status from fresh evidence, and the agent acts on the reasons, until every criterion is verified or waived. Humans enter the loop only to accept links and waivers.
+_Avoid_: Feedback loop, CI loop (CI runs checks; the loop judges criteria)
+
+**Agent workflow**:
+The process an agent follows to brainstorm, plan, specify, implement, and review work, supplied by tools such as Matt Pocock's skills or Compound Engineering. CraftRail runs inside an agent workflow; it does not supply one.
+_Avoid_: CraftRail lifecycle, framework process

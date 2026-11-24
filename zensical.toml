@@ -61,6 +61,9 @@ nav = [
       "adr/ADR-005-craftrail-ships-as-an-installable-cli.md",
       "adr/ADR-006-acceptance-is-recorded-on-the-protected-branch.md",
       "adr/ADR-007-acceptance-criteria-declare-a-required-verification-level.md",
+      "adr/ADR-008-links-live-in-spec-files-and-evidence-comes-from-junit.md",
+      "adr/ADR-009-failing-outranks-waived-and-levels-form-one-chain.md",
+      "adr/ADR-010-craftrail-is-the-verification-loop-for-software-factories.md",
     ] },
   ] },
 ]
