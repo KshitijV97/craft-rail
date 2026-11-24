@@ -12,6 +12,9 @@ This section documents how the CraftRail repository itself is organized, built, 
 | Automated checks | Ruff, Mypy strict mode, pytest coverage, pre-commit, Actionlint, GitHub Actions | [Python quality checks](../framework/python-quality.md) |
 | Documentation website | Zensical reads canonical Markdown and builds static pages; Vercel serves `site/` | [Documentation site](../framework/documentation-site.md) |
 | Agent neutrality | `AGENTS.md` is canonical; `CLAUDE.md` imports it; OpenCode reads `AGENTS.md` directly | [Agent compatibility](../framework/agent-compatibility.md) |
+| Local knowledge retrieval | Dependency-free reader plus optional stdio MCP adapter and Claude Code plugin | [MCP integration](../framework/mcp-integration.md) |
+
+The Python MCP adapter follows the current [official Python SDK](https://github.com/modelcontextprotocol/python-sdk) API and remains an optional extra. The core package keeps its Python 3.10 baseline; the current MCP SDK requires Python 3.11 or newer. The Claude Code plugin follows the documented plugin manifest and MCP configuration format; direct host verification remains pending.
 
 ## Build and test the repository
 

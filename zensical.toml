@@ -36,6 +36,7 @@ nav = [
     ] },
     { "Agents and reference" = [
       "framework/agent-compatibility.md",
+      "framework/mcp-integration.md",
       "framework/ecosystem-comparison.md",
       "framework/faq.md",
     ] },
