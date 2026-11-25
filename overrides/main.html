@@ -1,0 +1,40 @@
+{#-
+  Link-preview metadata (Open Graph and Twitter cards) for every page.
+  Per-page `title` and `description` front matter override the page heading
+  and site description. Image URLs are absolute because preview crawlers do
+  not resolve relative paths. Regenerate the image with tools/generate_og_image.py.
+-#}
+{% extends "base.html" %}
+{% block extrahead %}
+  {% if page.meta and page.meta.title %}
+    {% set og_title = page.meta.title %}
+  {% elif page.title and not page.is_homepage %}
+    {% set og_title = page.title | striptags %}
+  {% else %}
+    {% set og_title = config.site_name %}
+  {% endif %}
+  {% if page.meta and page.meta.description %}
+    {% set og_description = page.meta.description %}
+  {% else %}
+    {% set og_description = config.site_description %}
+  {% endif %}
+  {% set og_url = page.canonical_url or config.site_url %}
+  {% set og_is_home = page.is_homepage or ((og_url | trim("/")) == (config.site_url | trim("/"))) %}
+  {% set og_image = config.site_url | trim("/") ~ "/images/og-image.png" %}
+  {% set og_image_alt = "CraftRail: Guardrails for agent-driven development" %}
+  <meta property="og:type" content="{{ 'website' if og_is_home else 'article' }}">
+  <meta property="og:site_name" content="{{ config.site_name | e }}">
+  <meta property="og:title" content="{{ og_title | e }}">
+  <meta property="og:description" content="{{ og_description | e }}">
+  <meta property="og:url" content="{{ og_url }}">
+  <meta property="og:image" content="{{ og_image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ og_image_alt }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ og_title | e }}">
+  <meta name="twitter:description" content="{{ og_description | e }}">
+  <meta name="twitter:image" content="{{ og_image }}">
+  <meta name="twitter:image:alt" content="{{ og_image_alt }}">
+{% endblock %}
