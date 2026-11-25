@@ -18,3 +18,131 @@
 .md-typeset .mermaid {
   overflow-x: auto;
 }
+
+.md-content__inner:has(.cr-hero) {
+  max-width: 58rem;
+}
+
+.cr-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 3rem;
+  padding: clamp(2rem, 6vw, 4.5rem);
+  border: 1px solid rgba(8, 126, 112, 0.22);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(8, 126, 112, 0.17), transparent 45%),
+    linear-gradient(135deg, #f3f8f7 0%, #fff 68%);
+}
+
+.cr-hero h1 {
+  max-width: 13ch;
+  margin: 0.4rem 0 1rem;
+  color: #132a3a;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.cr-hero > p:not(.cr-eyebrow, .cr-actions, .cr-caption) {
+  max-width: 46rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.cr-eyebrow,
+.cr-card-label {
+  color: #087e70;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.cr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  margin: 1.7rem 0 1rem;
+}
+
+.cr-button {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  border: 1px solid #087e70;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.cr-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0.35rem 1rem rgba(19, 42, 58, 0.12);
+}
+
+.cr-button-primary {
+  background: #087e70;
+  color: #fff !important;
+}
+
+.cr-button-secondary {
+  background: #fff;
+  color: #075f56 !important;
+}
+
+.cr-caption {
+  color: #52636b;
+  font-size: 0.88rem;
+}
+
+.cr-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.cr-card {
+  padding: 1.25rem;
+  border: 1px solid #dce7e5;
+  border-radius: 0.8rem;
+  background: linear-gradient(160deg, #fff, #f7faf9);
+}
+
+.cr-card h3 {
+  margin-top: 0.55rem;
+  color: #132a3a;
+}
+
+.cr-card p:last-child {
+  margin-bottom: 0;
+  color: #52636b;
+  font-size: 0.94rem;
+}
+
+.cr-text-link {
+  padding: 0.5rem 0.2rem;
+  font-weight: 650;
+}
+
+@media (max-width: 760px) {
+  .cr-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cr-hero {
+    border-radius: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cr-button {
+    transition: none;
+  }
+
+  .cr-button:hover {
+    transform: none;
+  }
+}

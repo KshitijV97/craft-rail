@@ -1,13 +1,13 @@
 [project]
-site_name = "CraftRail Documentation"
-site_description = "Developer guide to CraftRail: a Git-native, agent-neutral framework for structured engineering intent and verification."
+site_name = "CraftRail — Guardrails for agent-driven development"
+site_description = "Keep engineering intent, architecture, implementation, and verification connected in your repository—with a workflow that works across coding agents."
 site_url = "https://craft-rail-docs.vercel.app"
 docs_dir = "docs"
 site_dir = "site"
 exclude_docs = "/project/"
 strict = true
 nav = [
-  { "Home" = "index.md" },
+  { "CraftRail" = "index.md" },
   { "1. Docs for adoption" = [
     "adoption/index.md",
     { "Get started" = [

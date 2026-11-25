@@ -81,14 +81,14 @@ Markdown is the canonical prose format because it is readable, diffable, and sup
 
 CraftRail can coexist with [GitHub Spec Kit](https://github.com/github/spec-kit) or [OpenSpec](https://openspec.dev/): choose one canonical home for each artifact and link across systems rather than maintaining conflicting copies. The [ecosystem comparison](docs/framework/ecosystem-comparison.md) describes the tradeoffs and was reviewed 2026-11-08.
 
-## Documentation
+## Website and documentation
 
-The [CraftRail documentation site](https://craft-rail-docs.vercel.app) is organized for two audiences:
+Visit the [CraftRail website](https://craft-rail-docs.vercel.app) for a product overview and a clear starting point. The site keeps the detailed resources in separate sections:
 
-1. [Docs for adoption](https://craft-rail-docs.vercel.app/adoption/) — start a new project, use the GitHub template, adopt CraftRail into an existing repo, and follow the engineering workflow.
-2. [Technical implementation of CraftRail](https://craft-rail-docs.vercel.app/implementation/) — understand this repository's architecture, Python tools, quality pipeline, releases, and documentation-site build.
+1. [Docs for adoption](https://craft-rail-docs.vercel.app/adoption/) — start a project from the template, adopt CraftRail into an existing repository, and use its engineering workflow.
+2. [Technical implementation of CraftRail](https://craft-rail-docs.vercel.app/implementation/) — understand how this repository's architecture, Python tools, quality pipeline, releases, and docs site work.
 
-The hosted site may ask for Vercel authentication. The same adoption guides are available in [`docs/adoption/`](docs/adoption/) and the source pages they link to.
+The hosted site may ask for Vercel authentication. Its Markdown source and linked guides are available in [`docs/`](docs/).
 
 ## Demo walkthrough
 

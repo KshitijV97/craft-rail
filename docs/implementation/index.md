@@ -10,7 +10,7 @@ This section documents how the CraftRail repository itself is organized, built, 
 | Repository layout | Framework docs, starter project docs, specs, templates, scripts, and tests | [Repository structure](../framework/repository-structure.md) |
 | Python tools | Feature initializer and structural documentation validator using the standard library | [Python quality checks](../framework/python-quality.md) and [validator boundaries](../framework/validation.md) |
 | Automated checks | Ruff, Mypy strict mode, pytest coverage, pre-commit, Actionlint, GitHub Actions | [Python quality checks](../framework/python-quality.md) |
-| Documentation website | Zensical reads canonical Markdown and builds static pages; Vercel serves `site/` | [Documentation site](../framework/documentation-site.md) |
+| Marketing and documentation website | The root page introduces CraftRail; separate sections hold adoption and implementation docs. Zensical builds canonical Markdown to static pages and Vercel serves `site/` | [Documentation site](../framework/documentation-site.md) |
 | Agent neutrality | `AGENTS.md` is canonical; `CLAUDE.md` imports it; OpenCode reads `AGENTS.md` directly | [Agent compatibility](../framework/agent-compatibility.md) |
 
 ## Build and test the repository
@@ -28,7 +28,7 @@ The checks type-check `scripts/` and `tests/`, run 26 unit tests, require at lea
 
 ## Maintain the documentation site
 
-The website is a presentation layer over `docs/`, not another source of truth. Edit Markdown, update the explicit navigation in `zensical.toml` when adding a page, run a strict site build, and deploy to Vercel. GitHub Actions builds the site but does not currently publish it; publication uses the authenticated Vercel CLI. The [deployment guide](../framework/documentation-site.md) explains the architecture and the current separation work tracked as `TD-001` in the repository-root `ROADMAP.md`.
+The marketing page and detailed guides are presentation layers over `docs/`, not separate sources of truth. Edit Markdown, update the explicit navigation in `zensical.toml` when adding a page, run a strict site build, and deploy to Vercel. GitHub Actions builds the site but does not currently publish it; publication uses the authenticated Vercel CLI. The [deployment guide](../framework/documentation-site.md) explains the architecture and the current separation work tracked as `TD-001` in the repository-root `ROADMAP.md`.
 
 ## Contribute and release
 

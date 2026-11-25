@@ -2,6 +2,8 @@
 
 The website is a rendered view of the canonical Markdown in `docs/`. It is not a new source of engineering requirements, and it does not contain copied pages that can drift from repository policy.
 
+The root page (`docs/index.md`) is the public marketing landing page. It introduces the problem CraftRail addresses, the framework's concrete capabilities and limits, and directs readers to the GitHub template or adoption guide. Detailed guidance stays in two distinct sections: [docs for adoption](../adoption/index.md) and the [technical implementation of CraftRail](../implementation/index.md). This gives first-time visitors a concise product entry point without removing the full technical reference.
+
 ## Why Zensical
 
 We selected Zensical as a static documentation generator because it reads the repository's existing Markdown and TOML navigation configuration, renders Mermaid diagrams, includes search/theme behavior, and emits ordinary static files. That output can be served by a CDN without a runtime service, database, or server-side application. It keeps authoring in Markdown and the development tools in Python; no project JavaScript framework is required.
@@ -14,7 +16,7 @@ Official references, reviewed 2026-11-08: [Zensical installation](https://zensic
 
 `zensical.toml` and `vercel.json` live at the root because the docs site reads `docs/` and related source content across the repository. Setting Vercel's project root to a nested `website/` directory would prevent the build from reading those sibling Markdown files. This is a repository-root build, with `site/` as generated output.
 
-The navigation is explicit. That adds a small maintenance cost when a page is added, but it gives developers a deliberate learning order and avoids exposing starter registers, internal decision notes, the implementation brief, or templates as primary website navigation. Pages can still be linked directly where useful.
+The navigation is explicit. That adds a small maintenance cost when a page is added, but it keeps the product landing page distinct from the detailed adopter and contributor guides and avoids exposing starter registers, internal decision notes, the implementation brief, or templates as primary website navigation. Pages can still be linked directly where useful.
 
 ## Local setup and preview
 
@@ -45,7 +47,7 @@ The deployed project is named `craft-rail-docs` and builds from the repository r
 
 The source of every page is committed under `docs/`. To change existing guidance, edit its Markdown file; to add a page, create a Markdown file and add it to the explicit `nav` list in `zensical.toml`. Images and CSS live in `docs/images/` and `docs/stylesheets/`. Do not edit `site/`: it is generated output and ignored by Git. The site is a rendered view of the canonical repository documentation, so those source files remain usable without Vercel.
 
-For a local preview, install the pinned site tool in an isolated environment and run `zensical serve` as described above. Before publishing, run `zensical build --clean --strict`; this catches missing navigation pages and other build issues. GitHub Actions runs the Python tests and quality checks and builds the site on pushes and pull requests. It does **not deploy** the site to Vercel.
+For a local preview, install the pinned site tool in an isolated environment and run `zensical serve` as described above. Before publishing, run `zensical build --clean --strict`; this catches missing navigation pages and other build issues. Check the root marketing page at desktop and mobile widths along with the adoption and implementation navigation. GitHub Actions runs the Python tests and quality checks and builds the site on pushes and pull requests. It does **not deploy** the site to Vercel.
 
 This Vercel project is currently CLI-driven. Since the repository is not connected to Vercel through GitHub, pushing a commit does not update the website. After reviewing a change, use the authenticated Vercel CLI from the repository root:
 
